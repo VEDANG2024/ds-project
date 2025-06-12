@@ -1,0 +1,39 @@
+@echo off
+cd /d "C:\Users\trive\Desktop\Distributed file system\Distributed-File-Storage-System-master"
+
+:: Activate virtual environment
+call C:\Users\trive\venv\Scripts\activate
+
+echo Starting Redis...
+start cmd /k "C:\Users\trive\Desktop\Redis-x64-3.0.504\redis-server.exe"
+timeout /t 5
+echo Starting MongoDB...
+start cmd /k "C:\Users\trive\Desktop\mongodb-windows-x86_64-8.0.6\mongodb-win32-x86_64-windows-8.0.6\bin\mongod.exe --dbpath C:\Users\trive\Desktop\mongodb-data"
+timeout /t 5
+echo Building Protobuf files...
+call build_pb.bat
+timeout /t 5
+echo Starting Supernode...
+start cmd /k "python superNode.py"
+echo Waiting for Supernode to start...
+timeout /t 10
+echo Starting Server (Node one)...
+start cmd /k "python server.py one"
+timeout /t 5
+echo Starting Server (Node two)...
+start cmd /k "python server.py two"
+timeout /t 5
+echo Starting Server (Node three)...
+start cmd /k "python server.py three"
+timeout /t 5
+echo Starting Server (Node four)...
+start cmd /k "python server.py four"
+timeout /t 5
+echo Starting Server (Node five)...
+start cmd /k "python server.py five"
+timeout /t 5
+echo Starting Server (Node six)...
+start cmd /k "python server.py six"
+timeout /t 5
+echo Starting Client...
+start cmd /k "python client.py"

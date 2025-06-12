@@ -1,0 +1,8 @@
+grpcio
+grpcio-tools
+redis
+pyyaml
+hashlib
+lru-dict
+psutil
+pysyncobj

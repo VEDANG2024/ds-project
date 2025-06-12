@@ -1,0 +1,14 @@
+Steps for running the project in windows:
+1.download components like mongodb,redis,emulator for redis etc.
+2.setup virtual environment where you want the project directory to be.
+3.install all the dependencies and libraries from requirements.txt
+4.ensure all the file are linked and present
+4.5 make directories named files and downloads in root folder
+5.execute windows batch file run_all.bat
+
+it will start 
+ redis port
+mongo db port
+supernode
+6 server nodes
+client node
